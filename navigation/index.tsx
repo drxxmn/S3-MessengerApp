@@ -27,6 +27,7 @@ import { Octicons,
     MaterialIcons,
     FontAwesome5,
 } from '@expo/vector-icons';
+import ContactsScreen from "../screens/ContactsScreen";
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -106,6 +107,10 @@ function RootNavigator() {
         />
 
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+        <Stack.Screen
+            name="Contacts"
+            component={ContactsScreen}
+        />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
