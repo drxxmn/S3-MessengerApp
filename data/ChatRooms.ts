@@ -27,7 +27,7 @@ export default [{
   }],
   lastMessage: {
     id: 'm2',
-    content: 'How are you doing?',
+    content: 'How are you doing?How are you doing?How are you doing?',
     createdAt: '2020-10-02T15:40:00.000Z',
   }
 }, {
