@@ -97,6 +97,9 @@ export const onCreateChatRoomUser = /* GraphQL */ `
         chatRoomUsers {
           nextToken
         }
+        messages {
+          nextToken
+        }
         createdAt
         updatedAt
         owner
@@ -128,6 +131,9 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
       chatRoom {
         id
         chatRoomUsers {
+          nextToken
+        }
+        messages {
           nextToken
         }
         createdAt
@@ -163,6 +169,9 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
         chatRoomUsers {
           nextToken
         }
+        messages {
+          nextToken
+        }
         createdAt
         updatedAt
         owner
@@ -183,6 +192,18 @@ export const onCreateChatRoom = /* GraphQL */ `
           userID
           chatRoomID
           createdAt
+          updatedAt
+          owner
+        }
+        nextToken
+      }
+      messages {
+        items {
+          id
+          createdAt
+          content
+          userID
+          chatRoomID
           updatedAt
           owner
         }
@@ -209,6 +230,18 @@ export const onUpdateChatRoom = /* GraphQL */ `
         }
         nextToken
       }
+      messages {
+        items {
+          id
+          createdAt
+          content
+          userID
+          chatRoomID
+          updatedAt
+          owner
+        }
+        nextToken
+      }
       createdAt
       updatedAt
       owner
@@ -230,7 +263,130 @@ export const onDeleteChatRoom = /* GraphQL */ `
         }
         nextToken
       }
+      messages {
+        items {
+          id
+          createdAt
+          content
+          userID
+          chatRoomID
+          updatedAt
+          owner
+        }
+        nextToken
+      }
       createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onCreateMessage = /* GraphQL */ `
+  subscription OnCreateMessage($owner: String) {
+    onCreateMessage(owner: $owner) {
+      id
+      createdAt
+      content
+      userID
+      chatRoomID
+      user {
+        id
+        name
+        imageUri
+        status
+        chatRoomUser {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
+      chatRoom {
+        id
+        chatRoomUsers {
+          nextToken
+        }
+        messages {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateMessage = /* GraphQL */ `
+  subscription OnUpdateMessage($owner: String) {
+    onUpdateMessage(owner: $owner) {
+      id
+      createdAt
+      content
+      userID
+      chatRoomID
+      user {
+        id
+        name
+        imageUri
+        status
+        chatRoomUser {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
+      chatRoom {
+        id
+        chatRoomUsers {
+          nextToken
+        }
+        messages {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteMessage = /* GraphQL */ `
+  subscription OnDeleteMessage($owner: String) {
+    onDeleteMessage(owner: $owner) {
+      id
+      createdAt
+      content
+      userID
+      chatRoomID
+      user {
+        id
+        name
+        imageUri
+        status
+        chatRoomUser {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
+      chatRoom {
+        id
+        chatRoomUsers {
+          nextToken
+        }
+        messages {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
       updatedAt
       owner
     }

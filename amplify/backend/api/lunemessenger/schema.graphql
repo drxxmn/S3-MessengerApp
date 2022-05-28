@@ -44,7 +44,24 @@ type ChatRoom
   ]
 ) {
   id: ID!
-  #chatRoomUsers: [ChatRoomUser] @connection(keyName: "byChatRoom", fields: ["id"])
   chatRoomUsers: [ChatRoomUser] @hasMany(indexName: "byChatRoom", fields: ["id"])
+  messages: [Message] @hasMany(indexName: "byChatRoom", fields: ["id"])
   # list of messages
+}
+
+type Message
+@model
+@auth(
+  rules: [
+    { allow: owner, operations: [create, read, update, delete] }
+    { allow: private, operations: [read] }
+  ]
+) {
+  id: ID!
+  createdAt: String!
+  content: String!
+  userID: ID!
+  chatRoomID: ID! @index(name: "byChatRoom", sortKeyFields: ["createdAt"], queryField: "messagesByChatRoom")
+  user: User @hasOne(fields: ["userID"])
+  chatRoom: ChatRoom @hasOne(fields: ["chatRoomID"])
 }
