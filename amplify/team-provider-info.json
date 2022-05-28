@@ -10,6 +10,11 @@
       "StackName": "amplify-lunemessenger-dev-114922",
       "StackId": "arn:aws:cloudformation:eu-west-1:943773761428:stack/amplify-lunemessenger-dev-114922/7348a390-de6b-11ec-9049-0ab66bcc0c73",
       "AmplifyAppId": "d3adv5j6jhq8b3"
+    },
+    "categories": {
+      "auth": {
+        "lunemessenger030df2eb": {}
+      }
     }
   }
 }
