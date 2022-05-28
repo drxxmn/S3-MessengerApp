@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "lunemessenger",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "C:\\Users\\Sen\\lune-messenger\\amplify\\backend\\api\\lunemessenger\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authlunemessenger030df2eb"
+    }
+  }
+}
