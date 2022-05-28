@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-lunemessenger-dev-114922-authRole",
+      "UnauthRoleArn": "arn:aws:iam::943773761428:role/amplify-lunemessenger-dev-114922-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::943773761428:role/amplify-lunemessenger-dev-114922-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-lunemessenger-dev-114922-deployment",
+      "UnauthRoleName": "amplify-lunemessenger-dev-114922-unauthRole",
+      "StackName": "amplify-lunemessenger-dev-114922",
+      "StackId": "arn:aws:cloudformation:eu-west-1:943773761428:stack/amplify-lunemessenger-dev-114922/7348a390-de6b-11ec-9049-0ab66bcc0c73",
+      "AmplifyAppId": "d3adv5j6jhq8b3"
+    }
+  }
+}
