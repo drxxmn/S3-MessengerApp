@@ -22,12 +22,12 @@ const ChatListItem = (props: ChatListItemProps) => {
     const navigation = useNavigation();
 
     useEffect(() => {
-        const getOtherUser= async () => {
+        const getOtherUser = async () => {
             const userInfo = await Auth.currentAuthenticatedUser();
-            if (chatRoom.chatRoomUsers.items[0].user.id === userInfo.attributes.sub){
-                setOtherUser(chatRoom.chatRoomUsers.items[1].user)
-            } else{
-                setOtherUser(chatRoom.chatRoomUsers.items[0].user)
+            if (chatRoom.chatRoomUsers.items[0].user.id === userInfo.attributes.sub) {
+                setOtherUser(chatRoom.chatRoomUsers.items[1].user);
+            } else {
+                setOtherUser(chatRoom.chatRoomUsers.items[0].user);
             }
         }
         getOtherUser();
@@ -52,7 +52,12 @@ const ChatListItem = (props: ChatListItemProps) => {
 
                 <View style={styles.midContainer}>
                     <Text style={styles.username}>{otherUser.name}</Text>
-                    <Text numberOfLines={1} ellipsizeMode={"head"} style={styles.lastMessage}>{chatRoom.lastMessage ? chatRoom.lastMessage.content : ""}</Text>
+                    <Text numberOfLines={2}
+                          ellipsizeMode={"head"}
+                          style={styles.lastMessage}>
+                            {chatRoom.lastMessage
+                            ? `${chatRoom.lastMessage.user.name}: ${chatRoom.lastMessage.content}`
+                                : ""}</Text>
                 </View>
             </View>
 

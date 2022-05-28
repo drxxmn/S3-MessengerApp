@@ -6,8 +6,11 @@ type User
 @model
 @auth(
   rules: [
-    { allow: owner, operations: [create, read, update, delete] }
-    { allow: private, operations: [read] }
+    #{ allow: owner, operations: [create, read, update, delete] }
+    { allow: owner },
+    { allow: groups, groups: ["Admin"] },
+    { allow: private, provider: userPools, operations: [read] }
+    #{ allow: private, operations: [read] }
   ]
 ) {
   id: ID!
@@ -24,8 +27,11 @@ type ChatRoomUser
 #@key(name: "byChatRoom", fields: ["chatRoomID", "userID"])
 @auth(
   rules: [
-    { allow: owner, operations: [create, read, update, delete] }
-    { allow: private, operations: [read] }
+    { allow: owner },
+    { allow: groups, groups: ["Admin"] },
+    { allow: private, provider: userPools, operations: [read] }
+#    { allow: owner, operations: [create, read, update, delete] }
+#    { allow: private, operations: [read] }
   ]
 ) {
   id: ID!
@@ -39,22 +45,29 @@ type ChatRoom
 @model
 @auth(
   rules: [
-    { allow: owner, operations: [create, read, update, delete] }
-    { allow: private, operations: [read] }
+    { allow: owner },
+    { allow: groups, groups: ["Admin"] },
+    { allow: private, provider: userPools, operations: [read] }
+#    { allow: owner, operations: [create, read, update, delete] }
+#    { allow: private, operations: [read] }
   ]
 ) {
   id: ID!
   chatRoomUsers: [ChatRoomUser] @hasMany(indexName: "byChatRoom", fields: ["id"])
   messages: [Message] @hasMany(indexName: "byChatRoom", fields: ["id"])
-  # list of messages
+  lastMessageID: ID
+  lastMessage: Message @hasOne(fields: ["lastMessageID"])
 }
 
 type Message
 @model
 @auth(
   rules: [
-    { allow: owner, operations: [create, read, update, delete] }
-    { allow: private, operations: [read] }
+    { allow: owner },
+    { allow: groups, groups: ["Admin"] },
+    { allow: private, provider: userPools, operations: [read] }
+#    { allow: owner, operations: [create, read, update, delete] }
+#    { allow: private, operations: [read] }
   ]
 ) {
   id: ID!
