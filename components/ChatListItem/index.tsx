@@ -45,6 +45,7 @@ const ChatListItem = (props: ChatListItemProps) => {
     }
 
     return (
+
         <TouchableWithoutFeedback onPress={onClick}>
         <View style={styles.container}>
             <View style={styles.leftContainer}>

@@ -44,6 +44,7 @@ export default function ChatsScreen() {
   return (
     <View style={styles.container}>
       <FlatList
+          testID={'chat-list'}
           style={{width: '100%'}}
           data={chatRooms}
           renderItem={({item}) => <ChatListItem chatRoom={item.chatRoom} />}
