@@ -1,7 +1,5 @@
 ---
 language: node_js
-env:
-  EXPO_CLI_PASSWORD: REY3grk9gtg@axf.bdj
 node_js:
   - node
   - lts/*
@@ -20,7 +18,5 @@ jobs:
       node_js: lts/*
       script:
         - npm ci
-        - npx expo login --non-interactive -u drxxmn
+        - npx expo login -u $drxxmn -p $EXPO_PASSWORD
         - npx expo publish --non-interactive
-
-
