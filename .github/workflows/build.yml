@@ -15,13 +15,12 @@ jobs:
 
       - name: 🏗 Setup repo
         uses: actions/checkout@v2
-        
+
       - name: 📦 test secret
         env:
           MY_KEY: ${{ secrets.EXPO_TOKEN}}
-          if: "{{ secrets.EXPO_TOKEN }}"
-          run: echo "This is executed if token is not empty"
-          
+        run: echo ${{ secrets.EXPO_TOKEN}}
+
       - name: 🏗 Setup Node
         uses: actions/setup-node@v2
         with:
