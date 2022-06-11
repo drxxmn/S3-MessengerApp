@@ -1,7 +1,8 @@
 # This is a basic workflow to help you get started with Actions
 
 name: CI
-
+  - name: Expo GitHub Action
+    uses: expo/expo-github-action@7.2.0
 on:
   push:
     branches:
