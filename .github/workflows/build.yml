@@ -23,6 +23,11 @@ jobs:
           fi
       - name: 🏗 Setup repo
         uses: actions/checkout@v2
+        run: yarn
+               
+      - name: Run tests
+        uses: actions/checkout@v2
+        run: yarn test
 
       - name: 🏗 Setup Node
         uses: actions/setup-node@v2
@@ -39,6 +44,3 @@ jobs:
 
       - name: 📦 Install dependencies
         run: yarn install
-
-      - name: 🚀 Publish app
-        run: expo publish --non-interactive
