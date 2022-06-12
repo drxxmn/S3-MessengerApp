@@ -34,3 +34,6 @@ jobs:
 
       - name: run jest tests
         run: npm run workflow
+
+      - name: 🚀 Publish app
+        run: expo publish --non-interactive
