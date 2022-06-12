@@ -26,7 +26,6 @@ jobs:
         run: yarn
                
       - name: Run tests
-        uses: actions/checkout@v2
         run: yarn test
 
       - name: 🏗 Setup Node
