@@ -21,7 +21,6 @@ jobs:
           else
             echo "No Secret"
           fi
-
       - name: 🏗 Setup repo
         uses: actions/checkout@v2
 
