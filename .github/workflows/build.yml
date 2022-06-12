@@ -13,14 +13,6 @@ jobs:
       - name: Expo GitHub Action
         uses: expo/expo-github-action@7.2.0
 
-      - name: Test
-        run: |
-          if [ "$EXPO_TEST" == "test" ]
-          then
-            echo "Got Secret"
-          else
-            echo "No Secret"
-          fi
       - name: 🏗 Setup repo
         uses: actions/checkout@v2
 
@@ -40,5 +32,5 @@ jobs:
       - name: 📦 Install dependencies
         run: yarn install
 
-      - name: 🚀 Publish app
-        run: expo publish --non-interactive
+      - name: run jest tests
+        run: npm run workflow
