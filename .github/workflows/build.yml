@@ -33,7 +33,7 @@ jobs:
         run: yarn install
 
       - name: run jest tests
-        run: yarn test
+        run: npm run workflow
 
       - name: 🚀 Publish app
         run: expo publish --non-interactive
