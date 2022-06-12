@@ -8,11 +8,11 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "workflow": "jest --forceExit --detectOpenHandles"
   },
   "jest": {
-    "preset": "jest-expo",
-    "workflow": "jest --forceExit --detectOpenHandles"
+    "preset": "jest-expo"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
